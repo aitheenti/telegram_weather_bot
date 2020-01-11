@@ -1,20 +1,21 @@
 name: "Github Actions Weather Bot"
 
 on:
+    push:
     schedule:
-        - cron: '15 7 * * *'
+            - cron: '15 7 * * *'
 
 jobs:
     bot:
-        runs-on: ubuntu-latest
-        steps:
-            - name: 'install node'
-                uses: actions/setup-node@v1
-                uses: actions/checkout@v1
-             - name: 'install npm dependencies'
-                run: npm install
-            - name: 'Execute the code'
-                 run: node index.js
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v1
+        - name: 'install node'
+            uses: actions/setup-node@v1
+        - name: 'install npm dependencies'
+            run: npm install
+        - name: 'Execute the code'
+            run: node index.js
             env: 
                 TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
                 TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
