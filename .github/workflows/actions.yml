@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v1
-        - name: 'install node'
+        - name: 'Install node'
             uses: actions/setup-node@v1
-        - name: 'install npm dependencies'
+        - name: 'Install NPM dependencies'
             run: npm install
         - name: 'Execute the code'
             run: node index.js
